@@ -13,7 +13,8 @@ class Table extends React.Component {
         super(props)
         this.state = { // state is an object by default
             players: [
-                { rating_number: 1500, username: 'uzibaby', games_played: 25 }
+
+                // { rating_number: 1500, username: 'uzibaby', games_played: 25 }
                 // { rank: 1, user: 'Mango', points: 99999 },
                 // { rank: 2, user: 'Leffen', points: 88888},
                 // { rank: 3, user: 'Armada', points: 77777},
@@ -23,14 +24,14 @@ class Table extends React.Component {
     }
 
     componentDidMount() {
-        //var _this = this;
-        this.serverRequest = axios.get('http://localhost:3000/allUsers')
+        axios.get('http://localhost:3005/allUsers')
         .then((response) => {
-            console.log(response)
+            console.log('got response from server')
             this.setState({
                 players: response.data
             })
         })
+
     }
 
 
@@ -39,16 +40,16 @@ class Table extends React.Component {
             // const { rank, user, points } = player //destructuring
             const { rating_number, username, games_played } = player
             return(
-                // <tr key={rank}>
-                //     <td>{rank}</td>
-                //     <td>{user}</td>
-                //     <td>{points}</td>
-                // </tr> 
                 <tr key={rating_number}>
                     <td>{rating_number}</td>
                     <td>{username}</td>
                     <td>{games_played}</td>
                 </tr>
+                // <tr key={rank}>
+                //     <td>{rank}</td>
+                //     <td>{user}</td>
+                //     <td>{points}</td>
+                // </tr> 
             )
         })
     }
