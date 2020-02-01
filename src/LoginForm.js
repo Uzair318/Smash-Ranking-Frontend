@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
+      alert('A user attemted to log in: ' + this.state.value);
       event.preventDefault();
     }
   
