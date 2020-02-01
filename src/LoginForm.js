@@ -4,19 +4,28 @@ import React from 'react';
 class LoginForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {
+          userVal: '',
+          passVal: ''
+        };
   
-      this.handleChange = this.handleChange.bind(this);
+      this.handleUsernameChange = this.handleUsernameChange.bind(this);
+      this.handlePasswordChange = this.handlePasswordChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    handleChange(event) {
-      this.setState({value: event.target.value});
+    handleUsernameChange(event) {
+      this.setState({userVal: event.target.value});
     }
+
+    handlePasswordChange(event) {
+        this.setState({passVal: event.target.value});
+    }
+    
   
     handleSubmit(event) {
-      alert('A user attemted to log in: ' + this.state.value);
-      event.preventDefault();
+      alert('A user attemted to log in: ' + this.state.userVal + ', ' + this.state.passVal);
+      //event.preventDefault();
     }
   
     render() {
@@ -24,11 +33,11 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Username:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" value={this.state.value} onChange={this.handleUsernameChange} />
           </label>
           <label>
             Password:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" value={this.state.value} onChange={this.handlePasswordChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>

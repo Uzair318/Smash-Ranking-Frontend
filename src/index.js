@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Table from './table';
+// import Table from './table';
 import './table.css';
 import * as serviceWorker from './serviceWorker';
 
